@@ -18,6 +18,7 @@ BuildRequires:	ImageMagick
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	glib-devel
+BuildRequires:	libtool
 Requires:	%{libname} = %{version}
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
