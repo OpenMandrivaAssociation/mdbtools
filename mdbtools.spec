@@ -6,7 +6,7 @@
 Summary:	MDB Tools accesses data stored in Microsoft Access databases
 Name:		mdbtools
 Version:	0.6
-Release:	%mkrel 0.%{snap}.1
+Release:	%mkrel 0.%{snap}.2
 Group:		Development/Databases
 License:	LGPL/GPL
 URL:		http://mdbtools.sourceforge.net
@@ -54,6 +54,7 @@ development with with the MDB Tools libraries.
 %package -n	%{libname}
 Summary:	MDB Tools ODBC driver for unixODBC
 Group:		System/Libraries
+Conflicts:	%{_lib}%{name}0 < 0.6.0
 
 %description -n	%{libname}
 The libmdbtools package contains ODBC driver build for unixODBC.
