@@ -6,7 +6,7 @@
 Summary:	MDB Tools accesses data stored in Microsoft Access databases
 Name:		mdbtools
 Version:	0.6
-Release:	%mkrel 0.%{snap}.2
+Release:	%mkrel 0.%{snap}.3
 Group:		Development/Databases
 License:	LGPL/GPL
 URL:		http://mdbtools.sourceforge.net
@@ -72,11 +72,14 @@ MDB Tools
 
 %setup -q -n %{name}
 
+# lib64 fix
+perl -pi -e "s|/lib\b|/%{_lib}|g" configure.in
+
 %build
 sh ./autogen.sh
 
 %configure2_5x \
-    --with-unixodbc
+    --with-unixodbc=%{_prefix}
 
 %make
 
