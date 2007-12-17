@@ -20,7 +20,6 @@ BuildRequires:	flex
 BuildRequires:	glib-devel
 BuildRequires:	libtool
 Requires:	%{libname} = %{version}
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 mdb-dump   -- simple hex dump utility for looking at mdb files
