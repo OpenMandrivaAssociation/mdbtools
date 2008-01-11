@@ -87,17 +87,6 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-mkdir -p %{buildroot}%{_menudir}
-cat <<EOF > %{buildroot}%{_menudir}/%{name}-gui
-?package(%{name}-gui): \
-needs="x11" \
-section="More Applications/Databases" \
-title="Gmdb" \
-longtitle="GNOME MDB Viewer" \
-command="%{_bindir}/gmdb2" needs="X11" \
-icon="%{name}.png" \
-xdg="true"
-EOF
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -182,7 +171,6 @@ rm -rf %{buildroot}
 %{_iconsdir}/%{name}.*
 %{_miconsdir}/%{name}.*
 %{_liconsdir}/%{name}.*
-%{_menudir}/%{name}-gui
 %{_datadir}/applications/*
 %{_bindir}/gmdb2
 %{_datadir}/gmdb/glade/code.xpm
