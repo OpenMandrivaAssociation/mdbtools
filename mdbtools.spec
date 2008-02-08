@@ -167,7 +167,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/libmdb.so.%{libmajor}*
 %{_libdir}/libmdbsql.so.%{libmajor}*
-%{_libdir}/libmdbodbc.so.%{libmajor}*
+%{_libdir}/libmdbodbc.so.0*
 
 %files gui
 %defattr (-,root,root)
