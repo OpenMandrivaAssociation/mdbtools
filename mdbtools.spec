@@ -2,13 +2,15 @@
 
 %define libmajor 1
 %define libname %mklibname %{name} %{libmajor}
+%define develname %mklibname %name -d
+%define sdevelname %mklibname %name -d -s
 
 Summary:	MDB Tools accesses data stored in Microsoft Access databases
 Name:		mdbtools
 Version:	0.6
-Release:	%mkrel 0.%{snap}.3
+Release:	%mkrel 0.%{snap}.4
 Group:		Development/Databases
-License:	LGPL/GPL
+License:	LGPLv2+ and GPLv2+
 URL:		http://mdbtools.sourceforge.net
 Source0:	%{name}-%{version}-%{snap}.tar.bz2
 BuildRequires:	libglade2.0-devel
@@ -31,22 +33,27 @@ mdb-parsecvs -- generates a C program given a CSV file made with mdb-export
 mdb-sql -- demo SQL engine program
 mdb-ver -- print version of database
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Include files needed for development with MDB Tools
 Group:		Development/Databases
 Requires:	%{libname} = %{version}
-Provides:	lib%{name}-devel
+Provides:	lib%{name}-devel = %version-%release
+Provides:	%{name}-devel = %version-%release
+Obsoletes:	%mklibname -d mdbtools 1
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 The libmdbtools-devel package contains the files necessary for development
 with with the MDB Tools libraries.
 
-%package -n	%{libname}-static-devel
+%package -n	%{sdevelname}
 Summary:	Include files needed for development with MDB Tools
 Group:		Development/Databases
-Requires:	%{libname}-devel = %{version}
+Requires:	%{develname} = %{version}
+Provides:	%{name}-static-devel = %version-%release
+Provides:       lib%{name}-static-devel = %version-%release
+Obsoletes:	%mklibname -d -s mdbtools 1
 
-%description -n	%{libname}-static-devel
+%description -n	%{sdevelname}
 The libmdbtools-static-devel package contains the files necessary for 
 development with with the MDB Tools libraries.
 
@@ -61,7 +68,6 @@ The libmdbtools package contains ODBC driver build for unixODBC.
 %package	gui
 Summary:	The gmdb2 graphical interface for MDB Tools
 Group:		Databases
-#Requires:      %{libname} = %{version}, libgnomeui2_0, libglade2.0_0
 
 %description	gui
 The mdbtools-gui package contains the gmdb2 graphical user interface for 
@@ -97,7 +103,7 @@ Exec=%{_bindir}/gmdb2
 Icon=%{name}
 Terminal=false
 Type=Application
-Categories=GNOME;GTK;X-MandrivaLinux-MoreApplications-Databases;
+Categories=GNOME;GTK;;
 EOF
 
 mkdir -p %{buildroot}/{%{_miconsdir},%{_liconsdir},%{_iconsdir}}
@@ -133,7 +139,7 @@ rm -rf %{buildroot}
 %{_bindir}/mdb-ver
 %{_mandir}/man1/*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr (-,root,root)
 %{_includedir}/connectparams.h
 %{_includedir}/gmdb.h
@@ -151,7 +157,7 @@ rm -rf %{buildroot}
 %{_libdir}/pkgconfig/libmdb.pc
 %{_libdir}/pkgconfig/libmdbsql.pc
 
-%files -n %{libname}-static-devel
+%files -n %{sdevelname}
 %defattr (-,root,root)
 %{_libdir}/libmdbsql.a
 %{_libdir}/libmdb.a
@@ -159,11 +165,9 @@ rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
-#%{_libdir}/libmdb.la
-%{_libdir}/libmdb.so.*
-#%{_libdir}/libmdbsql.la
-%{_libdir}/libmdbsql.so.*
-%{_libdir}/libmdbodbc.so.*
+%{_libdir}/libmdb.so.%{libmajor}*
+%{_libdir}/libmdbsql.so.%{libmajor}*
+%{_libdir}/libmdbodbc.so.%{libmajor}*
 
 %files gui
 %defattr (-,root,root)
