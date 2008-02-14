@@ -10,6 +10,7 @@ Name:		mdbtools
 Version:	0.6
 Release:	%mkrel 0.%{snap}.4
 Group:		Development/Databases
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	LGPLv2+ and GPLv2+
 URL:		http://mdbtools.sourceforge.net
 Source0:	%{name}-%{version}-%{snap}.tar.bz2
