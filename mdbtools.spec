@@ -8,9 +8,8 @@
 Summary:	MDB Tools accesses data stored in Microsoft Access databases
 Name:		mdbtools
 Version:	0.6
-Release:	%mkrel 0.%{snap}.4
+Release:	%mkrel 0.%{snap}.5
 Group:		Development/Databases
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License:	LGPLv2+ and GPLv2+
 URL:		http://mdbtools.sourceforge.net
 Source0:	%{name}-%{version}-%{snap}.tar.bz2
@@ -23,6 +22,7 @@ BuildRequires:	flex
 BuildRequires:	glib-devel
 BuildRequires:	libtool
 Requires:	%{libname} = %{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 mdb-dump   -- simple hex dump utility for looking at mdb files
@@ -93,7 +93,6 @@ sh ./autogen.sh
 rm -rf %{buildroot}
 
 %makeinstall_std
-
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
