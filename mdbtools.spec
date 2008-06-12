@@ -119,11 +119,15 @@ convert src/gmdb2/pixmaps/logo.xpm -resize 48x48 %{buildroot}%{_liconsdir}/%{nam
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
+%if %mdkversion < 200900
 %post gui
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun gui
 %clean_menus
+%endif
 
 %clean
 rm -rf %{buildroot}
