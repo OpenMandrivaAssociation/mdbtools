@@ -17,7 +17,7 @@ Patch0:		mdbtools-linkage_fix.diff
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	unixODBC-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	glib-devel
