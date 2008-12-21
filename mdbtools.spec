@@ -8,12 +8,13 @@
 Summary:	MDB Tools accesses data stored in Microsoft Access databases
 Name:		mdbtools
 Version:	0.6
-Release:	%mkrel 0.%{snap}.6
+Release:	%mkrel 0.%{snap}.7
 Group:		Development/Databases
 License:	LGPLv2+ and GPLv2+
 URL:		http://mdbtools.sourceforge.net
 Source0:	%{name}-%{version}-%{snap}.tar.bz2
 Patch0:		mdbtools-linkage_fix.diff
+Patch1:		mdbtools-0.6-20060524-format_not_a_string_literal_and_no_format_arguments.diff
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libgnomeui2-devel
 BuildRequires:	unixODBC-devel
@@ -79,6 +80,8 @@ MDB Tools
 
 %setup -q -n %{name}
 %patch0 -p0
+%patch1 -p1 -b .format_not_a_string_literal_and_no_format_arguments
+
 
 # lib64 fix
 perl -pi -e "s|/lib\b|/%{_lib}|g" configure.in
