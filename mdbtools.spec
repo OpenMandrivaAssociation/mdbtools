@@ -8,7 +8,7 @@
 Summary:	MDB Tools accesses data stored in Microsoft Access databases
 Name:		mdbtools
 Version:	0.6
-Release:	%mkrel 0.%{snap}.7
+Release:	%mkrel 0.%{snap}.8
 Group:		Development/Databases
 License:	LGPLv2+ and GPLv2+
 URL:		http://mdbtools.sourceforge.net
