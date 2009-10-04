@@ -21,7 +21,6 @@ BuildRequires:	unixODBC-devel
 BuildRequires:	imagemagick
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	glib-devel
 BuildRequires:	libtool
 Requires:	%{libname} = %{version}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
