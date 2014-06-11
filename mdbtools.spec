@@ -9,12 +9,21 @@ URL:            https://github.com/brianb/mdbtools/wiki
 
 Source0:        https://github.com/brianb/mdbtools/archive/%{version}.tar.gz
 Source1:        gmdb2.desktop
-BuildRequires:  libxml2-devel libgnomeui2-devel 
-BuildRequires:  unixODBC-devel readline-devel
-BuildRequires:  bison flex desktop-file-utils
-BuildRequires:  txt2man gnome-common 
-#rarian-compat
-BuildRequires:  libtool autoconf automake
+BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(libgnomeui-2.0)
+BuildRequires:  unixODBC-devel
+BuildRequires:  readline-devel
+BuildRequires:  bison
+BuildRequires:  flex
+BuildRequires:  desktop-file-utils
+BuildRequires:  txt2man
+BuildRequires:  gnome-common
+BuildRequires:  pkgconfig(libglade-2.0)
+BuildRequires:  rarian
+BuildRequires:  gnome-doc-utils
+BuildRequires:  libtool
+BuildRequires:  autoconf
+BuildRequires:  automake
 Requires:       %{name}-libs = %{EVRD}
 
 %description
@@ -64,8 +73,8 @@ autoreconf -vif
 %makeinstall_std
 
 # remove some headers which should not be installed / exported
-rm %{buildroot}%{_includedir}/gmdb.h
-rm %{buildroot}%{_includedir}/mdbver.h
+rm -f %{buildroot}%{_includedir}/gmdb.h
+rm -f %{buildroot}%{_includedir}/mdbver.h
 
 mkdir -p %{buildroot}%{_datadir}/applications
 
