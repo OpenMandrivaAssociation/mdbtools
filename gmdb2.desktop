@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=MDB database explorer
-Comment=Explorer your MDB database files
-Icon=gnome-day
-Exec=gmdb2
-Terminal=false
-Type=Application
-Categories=Development;
