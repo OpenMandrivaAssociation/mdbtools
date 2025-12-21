@@ -8,6 +8,8 @@ License:        GPLv2+
 URL:            https://github.com/mdbtools/mdbtools/wiki
 
 Source0:        https://github.com/mdbtools/mdbtools/releases/download/v%{version}/mdbtools-%{version}.tar.gz
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  unixODBC-devel
 BuildRequires:  readline-devel
